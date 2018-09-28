@@ -31,7 +31,7 @@ class CmockaConan(ConanFile):
         # Copy the license files
         self.copy(path.join(self.name, 'doc', 'that_style', 'LICENSE'), dst='licenses', src=self.name)
         # Copying headers
-        self.copy(pattern='*.h', dst='include', src=path.join(self.name, 'include'), keep_path=True)
+        self.copy(pattern='*.h', dst='.', src=path.join(self.name, 'include'), keep_path=True)
 
     def package_id(self):
         self.info.header_only()
