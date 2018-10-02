@@ -1,15 +1,25 @@
 conan-cmocka
 ============
 
-Packaging up cmocka in conan.
+Packaging up cmocka in conan. Hosted on bintray: https://bintray.com/samuelmarks/cmocka/cmocka%3Asamuelmarks
 
-## Build
+## Developing conan-cmocka, rebuild with:
 ```bash
 conan create . <your_username>/<your_channel>
 ```
+
 ## Usage
 
-Add this to your CMakeLists.txt:
+### Add a `conanfile.txt` with:
+```ini
+[requires]
+cmocka/1.1.3@samuelmarks/stable
+
+[generators]
+cmake
+```
+
+### Add this to your `CMakeLists.txt`:
 ```cmake
 enable_testing()
 include(CTest)
