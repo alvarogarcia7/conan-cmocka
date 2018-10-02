@@ -12,15 +12,20 @@ conan create . <your_username>/<your_channel>
 Add this to your CMakeLists.txt:
 ```cmake
 enable_testing()
-
-include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-conan_basic_setup()
-
 include(CTest)
 
-find_package(cmocka REQUIRED)
-include_directories(${CONAN_INCLUDE_DIRS}/include)
-add_executable(test_0 test/test_0.c)
+include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+conan_basic_setup(KEEP_RPATHS)
+
+find_package(CMOCKA REQUIRED)
+if (CMOCKA_FOUND)
+    include_directories("${CONAN_INCLUDE_DIRS_CMOCKA}/include")
+    add_executable(test_0 test/test_0.c)
+    add_test(test_0 test_0)
+    target_link_libraries(test_0 cmocka)
+else ()
+    message(could not find CMocka, did you run `conan install`?)
+endif ()
 ```
 
 Where `test/test_0.c` contains:
