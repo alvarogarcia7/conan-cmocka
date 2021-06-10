@@ -1,9 +1,12 @@
 conan-cmocka
 ============
 
-Packaging up cmocka in conan. Hosted on bintray: https://bintray.com/samuelmarks/cmocka/cmocka%3Asamuelmarks
+Packaging up cmocka in conan. 
+
+Originally hosted on bintray: https://bintray.com/samuelmarks/cmocka/cmocka%3Asamuelmarks, now this is deprecated.
 
 ## Developing conan-cmocka, rebuild with:
+
 ```bash
 conan create . <your_username>/<your_channel>
 ```
